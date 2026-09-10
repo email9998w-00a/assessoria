@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abertura de CNPJ MEI - Portal Oficial Brasileiro</title>
+    <title>Abertura de MEI | Sua Empresa</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
@@ -1062,6 +1062,12 @@
             color: var(--gray-900);
         }
 
+        .loading-subtext {
+            margin-top: 4px;
+            color: var(--gray-500);
+            font-size: 13px;
+        }
+
         /* ===== MELHORIAS DE ACESSIBILIDADE ===== */
         .form-input:focus-visible,
         .btn:focus-visible,
@@ -1111,10 +1117,6 @@
             </div>
             
             <div class="security-indicators">
-                <div class="gov-badge">
-                    <i class="fas fa-shield-alt"></i>
-                    Oficial
-                </div>
                 <div class="security-badge">
                     <i class="fas fa-lock"></i>
                     Seguro
@@ -1506,79 +1508,26 @@
                             </div>
                         </div>
 
-                        <!-- NOVA SEÇÃO: Comunicado sobre Taxa de Abertura -->
                         <div class="fee-notice-section">
                             <div class="fee-notice-header">
-                                <i class="fas fa-info-circle fee-notice-icon"></i>
-                                <h3 class="fee-notice-title">Informações sobre Taxa de Abertura</h3>
+                                <i class="fas fa-receipt fee-notice-icon"></i>
+                                <h3 class="fee-notice-title">Taxa de processamento</h3>
                             </div>
                             <div class="fee-notice-content">
-                                <p class="fee-notice-text">
-                                    Para finalizar o processo de abertura do seu MEI, é necessário o pagamento da taxa de processamento e formalização. 
-                                    Este valor cobre todos os custos administrativos e garante a emissão dos documentos oficiais.
-                                </p>
-                                
                                 <div class="fee-highlight-box">
                                     <div class="fee-amount">R$ 59,90</div>
-                                    <div class="fee-description">Taxa única de abertura e formalização</div>
+                                    <div class="fee-description">Valor total para concluir a solicitação</div>
                                 </div>
-
-                                <p class="fee-notice-text">
-                                    <strong>O que está incluído na taxa:</strong>
-                                </p>
-                                
-                                <ul class="fee-benefits-list">
-                                    <li>Processamento completo da documentação</li>
-                                    <li>Registro oficial no Portal do Empreendedor</li>
-                                    <li>Emissão do Certificado da Condição de MEI (CCMEI)</li>
-                                    <li>Inscrição Municipal e Estadual (quando aplicável)</li>
-                                    <li>Suporte especializado durante todo o processo</li>
-                                    <li>Entrega dos documentos digitais por e-mail</li>
-                                </ul>
-
-                                <p class="fee-notice-text">
-                                    <strong>Importante:</strong> Esta é uma taxa única e não há custos adicionais. 
-                                    Após o pagamento, você receberá todos os documentos necessários para iniciar suas atividades como MEI.
-                                </p>
                             </div>
                         </div>
 
                         <div class="declaration-section">
-                            <h3 class="declaration-title">
-                                <i class="fas fa-exclamation-triangle"></i>
-                                Declaração e Termos
-                            </h3>
-                            <p class="declaration-text">
-                                Ao prosseguir, você declara que leu e aceita os Termos de Uso e a Política de Privacidade, 
-                                confirma que as informações fornecidas são verdadeiras e autoriza o processamento dos seus 
-                                dados conforme a Lei Geral de Proteção de Dados (LGPD).
-                            </p>
-                            
+                            <h3 class="declaration-title"><i class="fas fa-check-circle"></i>Confirmação</h3>
+                            <p class="declaration-text">Confirme os dados e as condições para seguir ao pagamento.</p>
                             <div class="checkbox-group">
-                                <input type="checkbox" id="termsAccept" name="termsAccept" class="checkbox-input" required>
-                                <label for="termsAccept" class="checkbox-label">
-                                    Declaro que li e aceito os <strong>Termos de Uso</strong> e a <strong>Política de Privacidade</strong>
-                                </label>
-                            </div>
-                            
-                            <div class="checkbox-group">
-                                <input type="checkbox" id="dataAccuracy" name="dataAccuracy" class="checkbox-input" required>
-                                <label for="dataAccuracy" class="checkbox-label">
-                                    Confirmo que todas as informações fornecidas são <strong>verdadeiras e precisas</strong>
-                                </label>
-                            </div>
-                            
-                            <div class="checkbox-group">
-                                <input type="checkbox" id="lgpdConsent" name="lgpdConsent" class="checkbox-input" required>
-                                <label for="lgpdConsent" class="checkbox-label">
-                                    Autorizo o processamento dos meus dados pessoais conforme a <strong>LGPD</strong>
-                                </label>
-                            </div>
-
-                            <div class="checkbox-group">
-                                <input type="checkbox" id="feeAcknowledge" name="feeAcknowledge" class="checkbox-input" required>
-                                <label for="feeAcknowledge" class="checkbox-label">
-                                    Estou ciente da <strong>taxa de abertura de R$ 59,90</strong> e dos serviços incluídos
+                                <input type="checkbox" id="finalConsent" name="finalConsent" class="checkbox-input" required>
+                                <label for="finalConsent" class="checkbox-label">
+                                    Confirmo que meus dados estão corretos, aceito os <strong>Termos de Uso</strong> e a <strong>Política de Privacidade</strong>, autorizo o tratamento conforme a <strong>LGPD</strong> e estou ciente do valor de <strong>R$ 59,90</strong>.
                                 </label>
                             </div>
                         </div>
@@ -1591,7 +1540,7 @@
                                 </button>
                                 <button type="submit" class="btn btn-primary">
                                     <i class="fas fa-credit-card"></i>
-                                    Pagar e Finalizar (R$ 59,90)
+                                    Continuar para o pagamento · R$ 59,90
                                 </button>
                             </div>
                         </form>
@@ -1660,10 +1609,11 @@
     </div>
 
     <!-- Loading Overlay -->
-    <div class="loading-overlay" id="loadingOverlay">
+    <div class="loading-overlay" id="loadingOverlay" role="status" aria-live="polite" aria-label="Redirecionando para o pagamento">
         <div class="loading-content">
             <div class="loading-spinner"></div>
-            <div class="loading-text">Processando solicitação...</div>
+            <div class="loading-text">Preparando seu pagamento...</div>
+            <div class="loading-subtext">Você será redirecionado automaticamente.</div>
         </div>
     </div>
 
@@ -2215,26 +2165,21 @@
         async function handleConfirmationSubmit(e) {
             e.preventDefault();
             
-            if (!validateCurrentStep()) {
-                alert('Por favor, aceite todos os termos para continuar.');
-                return;
-            }
+            if (!validateCurrentStep()) return;
 
             const submitBtn = e.target.querySelector('button[type="submit"]');
             const loadingOverlay = document.getElementById('loadingOverlay');
             
-            if (submitBtn) submitBtn.classList.add('btn-loading');
+            if (submitBtn) {
+                submitBtn.classList.add('btn-loading');
+                submitBtn.disabled = true;
+                submitBtn.setAttribute('aria-busy', 'true');
+            }
             if (loadingOverlay) loadingOverlay.style.display = 'flex';
             
             try {
-                // Simulação de carregamento
-                await new Promise(resolve => setTimeout(resolve, 3000));
-                
                 const declarationData = {
-                    termsAccept: document.getElementById('termsAccept')?.checked,
-                    dataAccuracy: document.getElementById('dataAccuracy')?.checked,
-                    lgpdConsent: document.getElementById('lgpdConsent')?.checked,
-                    feeAcknowledge: document.getElementById('feeAcknowledge')?.checked,
+                    finalConsent: document.getElementById('finalConsent')?.checked,
                     submissionDate: new Date().toISOString()
                 };
 
@@ -2255,10 +2200,13 @@
                 
             } catch (error) {
                 console.error('Erro:', error);
-                alert('Erro ao processar solicitação. Tente novamente.');
-            } finally {
-                if (submitBtn) submitBtn.classList.remove('btn-loading');
+                if (submitBtn) {
+                    submitBtn.classList.remove('btn-loading');
+                    submitBtn.disabled = false;
+                    submitBtn.removeAttribute('aria-busy');
+                }
                 if (loadingOverlay) loadingOverlay.style.display = 'none';
+                alert('Não foi possível continuar. Verifique sua conexão e tente novamente.');
             }
         }
     </script>
