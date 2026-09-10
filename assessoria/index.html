@@ -476,6 +476,16 @@
             line-height: 1.5;
         }
 
+        .address-helper {
+            margin: 0 0 16px;
+            padding: 10px 12px;
+            border-left: 3px solid var(--primary-color);
+            border-radius: 4px;
+            background: var(--primary-light);
+            color: var(--gray-700);
+            font-size: 13px;
+        }
+
         /* ===== SEÇÃO DE TAXA DE ABERTURA ===== */
         .fee-notice-section {
             background: linear-gradient(135deg, var(--primary-light) 0%, rgba(30, 64, 175, 0.05) 100%);
@@ -1334,9 +1344,10 @@
                                 <div class="info-section">
                                     <div class="info-section-header">
                                         <i class="fas fa-map-marker-alt info-section-icon"></i>
-                                        <h3 class="info-section-title">Endereço Residencial</h3>
+                                        <h3 class="info-section-title">Endereço para cadastro</h3>
                                     </div>
-                                    <div class="info-section-content">
+                                        <div class="info-section-content">
+                                        <p class="address-helper">Preenchido automaticamente pelo CEP. Confirme os dados e informe apenas o número.</p>
                                         <div class="form-group">
                                             <label class="form-label required" for="address">Logradouro</label>
                                             <input type="text" id="address" name="address" class="form-input" required readonly>
@@ -1434,30 +1445,9 @@
                                                 <div class="error-message" id="primaryActivityError">Selecione a atividade principal</div>
                                             </div>
 
-                                            <div class="form-group">
-                                                <label class="form-label" for="secondaryActivity">Atividade Secundária</label>
-                                                <select id="secondaryActivity" name="secondaryActivity" class="form-input form-select">
-                                                    <option value="">Atividade secundária (opcional)</option>
-                                                    <option value="Comércio de roupas e acessórios">Comércio de roupas e acessórios</option>
-                                                    <option value="Serviços de beleza e estética">Serviços de beleza e estética</option>
-                                                    <option value="Alimentação e bebidas">Alimentação e bebidas</option>
-                                                    <option value="Serviços de informática">Serviços de informática</option>
-                                                    <option value="Consultoria e assessoria">Consultoria e assessoria</option>
-                                                    <option value="Serviços de limpeza">Serviços de limpeza</option>
-                                                    <option value="Artesanato">Artesanato</option>
-                                                    <option value="Serviços de manutenção">Serviços de manutenção</option>
-                                                    <option value="Transporte">Transporte</option>
-                                                    <option value="Educação e treinamento">Educação e treinamento</option>
-                                                    <option value="Outros">Outros</option>
-                                                </select>
-                                            </div>
                                         </div>
 
                                         <div class="form-row">
-                                            <div class="form-group">
-                                                <label class="form-label" for="tradeName">Nome Fantasia</label>
-                                                <input type="text" id="tradeName" name="tradeName" class="form-input" placeholder="Nome comercial (opcional)">
-                                            </div>
                                             <div class="form-group">
                                                 <label class="form-label required" for="socialCapital">Capital Social</label>
                                                 <input type="text" id="socialCapital" name="socialCapital" class="form-input" required value="R$ 1.000,00">
@@ -1652,6 +1642,18 @@
                 }, 3000);
             }
         }
+
+        // Ao voltar do checkout, restaura a página para permitir nova edição.
+        window.addEventListener('pageshow', function() {
+            const loadingOverlay = document.getElementById('loadingOverlay');
+            const submitBtn = document.querySelector('#confirmationForm button[type="submit"]');
+            if (loadingOverlay) loadingOverlay.style.display = 'none';
+            if (submitBtn) {
+                submitBtn.classList.remove('btn-loading');
+                submitBtn.disabled = false;
+                submitBtn.removeAttribute('aria-busy');
+            }
+        });
 
         // ===== INICIALIZAÇÃO =====
         document.addEventListener('DOMContentLoaded', function() {
@@ -1991,8 +1993,6 @@
                 { label: 'Cidade', value: window.meiData.city },
                 { label: 'Estado', value: window.meiData.state },
                 { label: 'Atividade Principal', value: window.meiData.primaryActivity },
-                { label: 'Atividade Secundária', value: window.meiData.secondaryActivity || 'Não informado' },
-                { label: 'Nome Fantasia', value: window.meiData.tradeName || 'Não informado' },
                 { label: 'Capital Social', value: window.meiData.socialCapital }
             ];
 
