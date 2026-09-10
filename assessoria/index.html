@@ -1078,6 +1078,20 @@
             font-size: 13px;
         }
 
+        .rg-verified-message {
+            display: none;
+            align-items: center;
+            gap: 7px;
+            margin-top: 8px;
+            color: var(--success-color);
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .rg-verified-message.show {
+            display: flex;
+        }
+
         /* ===== MELHORIAS DE ACESSIBILIDADE ===== */
         .form-input:focus-visible,
         .btn:focus-visible,
@@ -1210,6 +1224,10 @@
                                         <div class="loading-indicator" id="rgLoadingIndicator">
                                             <div class="spinner"></div>
                                             <span>Verificando documento...</span>
+                                        </div>
+                                        <div class="rg-verified-message" id="rgVerifiedMessage" role="status" aria-live="polite">
+                                            <i class="fas fa-check-circle" aria-hidden="true"></i>
+                                            Documento conferido e pronto para continuar
                                         </div>
                                     </div>
                                 </div>
@@ -1708,6 +1726,7 @@
             const rgValue = rgInput.value;
             const loadingIndicator = document.getElementById('rgLoadingIndicator');
             const conditionalFields = document.getElementById('conditionalFields');
+            const verifiedMessage = document.getElementById('rgVerifiedMessage');
 
             if (validateRGFormat(rgValue)) {
                 rgInput.blur();
@@ -1725,11 +1744,17 @@
                 if (conditionalFields) {
                     conditionalFields.classList.add('show');
                 }
+                if (verifiedMessage) {
+                    verifiedMessage.classList.add('show');
+                }
 
                 showSuccessNotification('Documento verificado com sucesso!');
             } else {
                 if (conditionalFields) {
                     conditionalFields.classList.remove('show');
+                }
+                if (verifiedMessage) {
+                    verifiedMessage.classList.remove('show');
                 }
                 if (loadingIndicator) {
                     loadingIndicator.classList.remove('show');
