@@ -1813,6 +1813,8 @@
             
             if (cep.length === 8) {
                 if (isProcessing) return;
+                // Fecha o teclado assim que o CEP completo é informado.
+                if (document.activeElement === cepInput) cepInput.blur();
                 isProcessing = true;
                 
                 if (loadingIndicator) {
@@ -1879,11 +1881,6 @@
                 const field = document.getElementById(fieldName);
                 if (field) field.value = value;
             });
-            
-            const numberField = document.getElementById('number');
-            if (numberField) {
-                setTimeout(() => numberField.focus(), 100);
-            }
             
             addressFilled = true;
         }
